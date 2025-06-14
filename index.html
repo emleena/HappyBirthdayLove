@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: rgba(139, 0, 0, 0.85);
+      overflow-x: hidden;
+      color: white;
+    }
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      z-index: 1;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+    .heart::after {
+      top: 0;
+      left: -5px;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) rotate(45deg);}
+      100% {transform: translateY(-100vh) rotate(45deg);}
+    }
+    .card {
+      max-width: 600px;
+      background: white;
+      color: #b30000;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .card h1 {
+      font-size: 2.5em;
+      font-family: 'Great Vibes', cursive;
+    }
+    .card p {
+      font-size: 1.4em;
+      margin-top: 20px;
+    }
+    .section {
+      max-width: 700px;
+      margin: 10px auto;
+      padding:0px;
+      background: transparent;
+      color: white;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+    }
+    .section p {
+      font-size: 1.3em;
+    }
+    .timer {
+      font-size: 1.5em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .song-button {
+      display: center;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5em;
+      line-height: 60px;
+      text-align: center;
+      cursor: pointer;
+      margin: 20px auto;
+      box-shadow: 0 0 10px #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="song-button" onclick="document.getElementById('birthday-audio').play();">❤</div>
+  <audio id="birthday-audio" src="Tum Hi Ho (Aashiqui 2)-(Mr-Jat.in).mp3"></audio>
+
+  <!-- Heart animation -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="card">
+    <h1>🎂 Happy Birthday My Love!💞</h1>
+    <p>🌹 You are the melody in my heart, the peace in my chaos, and the love I never knew I needed.
+	On this special day, I celebrate not just your birth, but the light you've brought into my life. 
+	May your day be filled with love, laughter, and dreams come true. 💖</p>
+  </div>
+
+  <div class="section">
+    <img src="hbd.jpeg" alt="My Love" style="max-width: 50%; border-radius: 60px;">
+    
+  </div>
+
+  <div class="section">
+    <h2>Reasons Why I Love You 💌 </h2>
+    Janaa💞
+    <p style="margin-top: 20px;">
+      💖  I love how you care, how you listen, how you understand even when I don't say a word.I love you because of your kind heart,
+ your deep loyalty, your understanding soul, and the way you make me feel safe and adored. I love your flaws as much as your strengths. You are my best friend, 
+my happiness, and my soulmate.Your love makes me stronger. 🌹
+Thank you for being the love of my life. I love *you*—simply, endlessly, deeply. I love you....I love you Janaaa more than words can express💖
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>⏳ Since Our Journey Began</h2>
+    <div class="timer" id="loveTimer"></div>
+  </div>
+
+  <script>
+    const startDate = new Date("2024-09-04T00:00:00");
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("loveTimer").textContent = `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds of Love 💖`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
